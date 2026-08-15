@@ -1,0 +1,54 @@
+
+esphome:
+  name: bellsense
+  friendly_name: BellSense
+
+
+esp8266:
+  board: d1_mini
+
+status_led:
+  pin:
+    number: GPIO2
+    inverted: true
+    
+logger:
+
+api:
+  # reboot_timeout: 15min
+  password: ""
+
+ota:
+  - platform: esphome
+    password: ""
+
+web_server:
+  port: 80
+
+wifi:
+  # reboot_timeout: 15min
+  ssid: "Mangalam"
+  password: "m@ng@l@m25"
+  power_save_mode: none
+
+  ap:
+    ssid: "BellSense Fallback"
+    password: "12345678"
+
+captive_portal:
+
+external_components:
+  - source:
+      type: local
+      path: components
+
+binary_sensor:
+  - platform: doorbell
+    name: Doorbell
+
+    sample_interval: 5ms
+    window: 100ms
+
+    press_threshold: 0.10
+    release_threshold: 0.05
+
