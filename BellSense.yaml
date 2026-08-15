@@ -27,13 +27,13 @@ web_server:
 
 wifi:
   # reboot_timeout: 15min
-  ssid: "Mangalam"
-  password: "m@ng@l@m25"
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   power_save_mode: none
 
   ap:
-    ssid: "BellSense Fallback"
-    password: "12345678"
+    ssid: !secret fallback_ssid
+    password: !secret fallback_password
 
 captive_portal:
 
